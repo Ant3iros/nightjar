@@ -19,6 +19,8 @@ scale = Vector2(0.164063, 0.15625)
 texture = ExtResource("2_2vw3k")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 1.0
+path_postprocessing = 1
 debug_enabled = true
 
 [node name="Timer" type="Timer" parent="."]
