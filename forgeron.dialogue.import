@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://e336tk8hivtb"
+path="res://.godot/imported/forgeron.dialogue-b7119f8b2374ac3f7cc8bd28fcd34bed.tres"
+
+[deps]
+
+source_file="res://forgeron.dialogue"
+dest_files=["res://.godot/imported/forgeron.dialogue-b7119f8b2374ac3f7cc8bd28fcd34bed.tres"]
+
+[params]
+
+defaults=true

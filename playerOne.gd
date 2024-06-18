@@ -4,6 +4,9 @@ extends CharacterBody2D
 const SPEED = 80.0
 const JUMP_VELOCITY = -400.0
 
+var canTalk = false
+var talkRessource = ""
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -39,8 +42,16 @@ func _physics_process(delta):
 	# Add the gravity.
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	if canTalk == true :
+		if Input.is_action_just_pressed("ui_accept") :
+			print("ui accepted")
+			#var resource = load("res://main.dialogue")
+			var resource = load(talkRessource)
+			print('ressource passed')
+			var dialogue_line = await DialogueManager.show_dialogue_balloon(resource, "start")
+			print('return')
+			return
+
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -50,3 +61,21 @@ func _physics_process(delta):
 	shedule_animation(direction_x, direction_y)
 	
 	move_and_slide()
+
+
+func _on_area_2d_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	if body.is_in_group("pnj"):
+		if body.has_method("get_pnjname"):  # Vérifie si le body a une méthode pour obtenir les points de vie
+			var health = body.get_pnjname()
+			talkRessource = body.get_talk()  # Appelle la méthode pour obtenir les points de vie
+			print("Le PNJ ", health, " est entré dans la zone avec ", State.statusDiscussion)
+			canTalk = true
+
+
+func _on_area_2d_body_shape_exited(body_rid, body, body_shape_index, local_shape_index):
+	if body.is_in_group("pnj"):
+		if body.has_method("get_pnjname"):  # Vérifie si le body a une méthode pour obtenir les points de vie
+			canTalk = false
+			talkRessource = ""
+			
+

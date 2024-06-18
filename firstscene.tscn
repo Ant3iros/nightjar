@@ -1,9 +1,24 @@
-[gd_scene load_steps=16 format=3 uid="uid://cnwb4dnv3efda"]
+[gd_scene load_steps=18 format=3 uid="uid://cnwb4dnv3efda"]
 
 [ext_resource type="Texture2D" uid="uid://6x06hghetdqb" path="res://tilemap_town_packed.png" id="1_erjwq"]
 [ext_resource type="Texture2D" uid="uid://cv2brckuwdydb" path="res://tilemap_dungeon_packed.png" id="2_1or51"]
 [ext_resource type="PackedScene" uid="uid://cpgsto1qo8kix" path="res://player.tscn" id="3_vktb3"]
 [ext_resource type="PackedScene" uid="uid://dmyaqarp154dd" path="res://follower.tscn" id="4_c04nx"]
+[ext_resource type="PackedScene" uid="uid://dlwxelaiwl3de" path="res://pnj.tscn" id="5_os07j"]
+
+[sub_resource type="GDScript" id="GDScript_lgp38"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_x8ke3"]
 tile_data = PackedInt32Array(0, 0, 4, 65536, 0, 7, 65537, 65536, 7)
@@ -964,7 +979,8 @@ sources/0 = SubResource("TileSetAtlasSource_l4lps")
 sources/1 = SubResource("TileSetAtlasSource_xnhtn")
 pattern_0 = SubResource("TileMapPattern_x8ke3")
 
-[node name="Node2D" type="Node2D"]
+[node name="world" type="Node2D"]
+script = SubResource("GDScript_lgp38")
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
@@ -979,6 +995,18 @@ layer_1/tile_data = PackedInt32Array(1703972, 327680, 2, 1966139, 327680, 2, 203
 position = Vector2(400, 189)
 
 [node name="follower" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_c04nx")]
-position = Vector2(111, 66)
+position = Vector2(113, 66)
 scale = Vector2(0.5, 0.5)
 target = NodePath("../Player")
+
+[node name="Amie" parent="." instance=ExtResource("5_os07j")]
+position = Vector2(539, 117)
+metadata/talk = "res://main.dialogue"
+
+[node name="Forgeron" parent="." instance=ExtResource("5_os07j")]
+position = Vector2(696, 198)
+metadata/talk = "res://forgeron.dialogue"
+
+[node name="Entraineur" parent="." instance=ExtResource("5_os07j")]
+position = Vector2(72, 183)
+metadata/talk = "res://entraineur.dialogue"

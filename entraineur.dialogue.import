@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://by4xj16hjxstv"
+path="res://.godot/imported/entraineur.dialogue-ade6427ecb4b70ed62455ed674eb1df9.tres"
+
+[deps]
+
+source_file="res://entraineur.dialogue"
+dest_files=["res://.godot/imported/entraineur.dialogue-ade6427ecb4b70ed62455ed674eb1df9.tres"]
+
+[params]
+
+defaults=true

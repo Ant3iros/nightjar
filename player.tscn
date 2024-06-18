@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cpgsto1qo8kix"]
+[gd_scene load_steps=23 format=3 uid="uid://cpgsto1qo8kix"]
 
 [ext_resource type="Texture2D" uid="uid://cpxpt0f5e04ws" path="res://Small-8-Direction-Characters_by_AxulArt.png" id="1_bxlij"]
 [ext_resource type="Script" path="res://playerOne.gd" id="1_m3x6r"]
@@ -170,8 +170,12 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_rkrkw"]
+radius = 12.0416
+
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 2
+position = Vector2(-1, -2)
+collision_mask = 7
 script = ExtResource("1_m3x6r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -185,3 +189,17 @@ animation = &"stay"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Marker2D"]
+modulate = Color(0.872828, 0.381378, 0.357624, 1)
+collision_mask = 4
+
+[node name="actionShape2D" type="CollisionShape2D" parent="Marker2D/Area2D"]
+position = Vector2(1, 2)
+shape = SubResource("CircleShape2D_rkrkw")
+debug_color = Color(0.87348, 0.308177, 0.41928, 0.42)
+
+[connection signal="body_entered" from="Marker2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_shape_entered" from="Marker2D/Area2D" to="." method="_on_area_2d_body_shape_entered"]

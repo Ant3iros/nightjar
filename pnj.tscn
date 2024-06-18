@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dlwxelaiwl3de"]
+
+[ext_resource type="Texture2D" uid="uid://cpxpt0f5e04ws" path="res://Small-8-Direction-Characters_by_AxulArt.png" id="1_ctj87"]
+[ext_resource type="Script" path="res://pnj.gd" id="1_xe2i4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4fe5e"]
+size = Vector2(13, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4laj"]
+atlas = ExtResource("1_ctj87")
+region = Rect2(64, 144, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hf4dg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4laj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="PNJ" type="CharacterBody2D" groups=["pnj"]]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_xe2i4")
+metadata/talk = "pnj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1.5)
+shape = SubResource("RectangleShape2D_4fe5e")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hf4dg")
