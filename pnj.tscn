@@ -26,6 +26,8 @@ collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_xe2i4")
 metadata/talk = "pnj"
+metadata/pnj_name = "Alicia"
+metadata/StoryTelling = ""
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 1.5)
@@ -33,3 +35,7 @@ shape = SubResource("RectangleShape2D_4fe5e")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hf4dg")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

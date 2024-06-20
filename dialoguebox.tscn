@@ -1,0 +1,64 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0mgkjhh7a1dq"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_jh40e"]
+
+[node name="DialogueBox" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 378.0
+offset_right = 1141.0
+offset_bottom = 641.0
+texture = SubResource("CanvasTexture_jh40e")
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_right = 805.0
+offset_bottom = 110.0
+scale = Vector2(0.2, 0.2)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 80
+theme_override_font_sizes/bold_font_size = 80
+theme_override_font_sizes/italics_font_size = 80
+theme_override_font_sizes/bold_italics_font_size = 80
+text = "Name"
+
+[node name="Text" type="RichTextLabel" parent="NinePatchRect"]
+offset_left = 2.0
+offset_top = 34.0
+offset_right = 4882.0
+offset_bottom = 579.0
+scale = Vector2(0.2, 0.2)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 60
+theme_override_font_sizes/bold_font_size = 60
+theme_override_font_sizes/italics_font_size = 60
+theme_override_font_sizes/bold_italics_font_size = 60
+theme_override_font_sizes/mono_font_size = 60
+text = "yyfezrfgyujizegfyuzfgeryuf"
+tab_size = 24
+
+[node name="TextEdit" type="TextEdit" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 155.0
+offset_right = 981.0
+offset_bottom = 259.0
+
+[node name="Button" type="Button" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 986.0
+offset_top = 54.0
+offset_right = -5.0
+offset_bottom = -7.0
+text = "Envoyer"

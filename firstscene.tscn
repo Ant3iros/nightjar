@@ -1006,7 +1006,9 @@ metadata/talk = "res://main.dialogue"
 [node name="Forgeron" parent="." instance=ExtResource("5_os07j")]
 position = Vector2(696, 198)
 metadata/talk = "res://forgeron.dialogue"
+metadata/pnj_name = "Eric"
 
 [node name="Entraineur" parent="." instance=ExtResource("5_os07j")]
 position = Vector2(72, 183)
 metadata/talk = "res://entraineur.dialogue"
+metadata/pnj_name = "Pedro"

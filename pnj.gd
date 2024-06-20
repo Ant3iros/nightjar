@@ -1,11 +1,31 @@
 extends CharacterBody2D
 
+@onready var http_request = $HTTPRequest
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var health: int = 100
+var sympathy: int = 0
 var pnjName: String = "Alicia"
 var talk: String = ""
+var url: String = "https://meowfacts.herokuapp.com/"
+
+func exchange_toLLM():
+	#http_request.request(url)
+	pass
+	
+#func _on_http_request_request_completed(result, response_code, headers, body):
+	#var json = JSON.parse_string(body.get_string_from_utf8())
+	#print(json["data"]) 
+
+func get_sympaty():
+	return sympathy
+
+func get_npc_context():
+	return get_meta("pnj_name")
+
+func get_npc_name():
+	return get_meta("pnj_name")
 
 func get_talk():
 	if get_meta("talk"):
@@ -42,3 +62,4 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	#move_and_slide()
+
